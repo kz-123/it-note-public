@@ -46,3 +46,82 @@
 あなた（リポジトリ所有者）はレビューして「Merge」するか判断できます。
 
 ☑️ つまり、「誰でも提案はできるが、マージするのは自分だけ」にできます。
+
+---
+
+## フォークしてPR提出可能、不可能のそれぞれの設定方法
+
+🔑 ポイントは：「フォークそのものはPublicなら誰でも可能。PR提出は、受け取る側の設定とブランチ保護に依存します」
+
+✅ 前提の理解：フォークとPRの関係
+
+| 機能	 | 説明 |
+|--------|-----------------------------------------|
+| フォーク |	Publicなリポジトリなら誰でも可能（制限不可） |
+| PR提出	 |フォーク元にPull Requestを送る操作 |
+| マージ権限 |	PRをレビューしてマージできるのは元リポジトリのCollaboratorやOwner |
+
+### 🛠️ PRの提出を「可能」にする設定方法
+✅ ① リポジトリを Public に設定する
+フォークとPR提出を許可する前提条件
+
+Settings > Danger Zone > 「Change repository visibility」
+
+✅ ② デフォルトブランチ（mainなど）を保護しすぎない
+Settings > Branches > Branch protection rules
+
+PRの提出自体をブロックしたくない場合は、以下はONにしない方がよい：
+❌ Restrict who can push to matching branches
+
+このチェックを外しておけば、誰でもPRを送ることは可能になります（マージは別）
+
+✅ ③ Pull Requestのレビューは「必須」にしておく（推奨）
+Settings > Branches > Protection rules:
+
+✅ "Require pull request reviews before merging"
+
+✅ "Require status checks to pass before merging"
+
+※ PRは受け取るが、自動でマージされないようにするための安全策です。
+
+### ❌ PR提出を「不可能」にする（または制限する）設定方法
+✅ 方法①：リポジトリを Private にする
+フォーク不可（GitHubの仕様でPrivate repoはフォークできない）
+
+Settings > Danger Zone > Change to Private
+
+✅ 方法②：PR提出を受け取るブランチへのマージを制限
+Settings > Branches > Add branch protection rule
+
+✅ "Restrict who can push to matching branches"
+
+許可したユーザー（例：Collaborator）のみPR受け入れ可
+
+✅ 方法③：IssueやPR自体を非推奨にする文言をREADMEに記載
+GitHubの仕様上、完全にブロックする方法はない（Publicな場合）
+
+ただし、以下のような記述で非公式に拒否は可能：
+
+**このリポジトリではPRを受け付けていません。ご理解ください。**
+
+🧪 特殊設定：GitHub Enterprise / Organizationの場合
+Organization単位で「フォークを無効にする」オプションがある
+
+[Settings] → [Member privileges] → 「Allow forking of private repositories」
+
+📊 まとめ
+
+| やりたいこと	| 方法 |
+|----|---|
+| フォーク + PR 提出「可能」にする |	リポジトリを Public にし、ブランチ保護は緩めに設定 |
+| PR提出「不可 or 制限」 |	Privateにする、ブランチ保護でpushとPR制限 |
+|完全に拒否したい	| GitHub上では不可能。READMEで方針を明記する |
+**
+
+## 🔧 Markdownでうまく表示できない場合の対処ポイントまとめ
+
+- \<h2\>などのHTMLタグ：	**Markdownの\#\# 見出しなどに置き換える**
+- 表の前後の空行：	**1行空けるとプレビューが安定しやすい**
+- 改行と箇条書き：	**Markdownの記法（-, 1., \#\#など）を使う**
+
+Markdownの整形も自動でやりたい場合は、VSCodeのMarkdown Preview Enhanced拡張や、GitHub Desktopも便利ですよ。
