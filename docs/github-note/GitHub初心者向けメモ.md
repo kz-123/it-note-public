@@ -204,3 +204,12 @@ Organization単位で「フォークを無効にする」オプションがあ�
 
 Markdownの整形も自動でやりたい場合は、VSCodeのMarkdown Preview Enhanced拡張や、GitHub Desktopも便利ですよ。
 
+\[コメント\]\(https: //github.com/《ユーザー》/《リポジトリ》/《キーワード blobなど》/《ブランチ mainなど》/《ファイルorディレクトリ》\)
+
+🧪 URL比較：使い分け例
+| URL | GitHub上の挙動 |
+|---|----|
+| .../tree/main/docs/ |	ディレクトリ（フォルダ）を一覧表示 |
+| .../blob/main/docs/file.md | ファイルの中身を表示（読み取り） |
+| .../edit/main/docs/file.md | ファイルの編集ページを開く |
+| .../raw/main/docs/file.md | ファイルの**生データ（Markdownのソース）**を返す（APIなど向け） |
