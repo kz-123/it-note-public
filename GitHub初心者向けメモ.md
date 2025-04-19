@@ -1,5 +1,7 @@
-初心者向けGitHub
-<h2>著作権説明一覧</h2>
+# 初心者向けGitHub
+
+## 著作権説明一覧
+
 | ライセンス名        | 特徴                                      | 商用利用 | 改変 | 再配布 | クレジット表記 | コピーレフト       |
 |---------------------|-------------------------------------------|----------|------|--------|----------------|--------------------|
 | MIT                 | 簡潔で自由度が高い。著作権表示が必要        | ✅       | ✅   | ✅     | ✅             | ❌（なし）         |
@@ -12,32 +14,35 @@
 | Unlicense           | 著作権放棄。完全自由                       | ✅       | ✅   | ✅     | ❌             | ❌（なし）         |
 | Creative Commons系  | 文章・画像など用。コードには非推奨          | 条件による | 条件による | 条件による | ✅             | 条件による         |
 
+---
 
-<h2>「Public（公開）」なリポジトリにおいて、他のユーザーに編集権限を与えないようにする</h2>
+## 「Public（公開）」なリポジトリにおいて、他のユーザーに編集権限を与えないようにする
 
-<h3>publicでも編集権限を与えない方法</h3>
-1. 🔐 Collaboratorを追加しない
-デフォルトで他人は編集できません（Public＝「閲覧のみ」）
+### publicでも編集権限を与えない方法
 
-誰も**Collaborator（共同編集者）**として追加しなければ、編集不可
+1. 🔐 **Collaboratorを追加しない**  
+   デフォルトで他人は編集できません（Public＝「閲覧のみ」）
 
-2. 🛡️ Branch保護ルール（Protected Branches）を設定
-たとえ編集者を追加しても、main や master を守ることができます。
+2. 🛡️ **Branch保護ルール（Protected Branches）を設定**  
+   たとえ編集者を追加しても、`main` や `master` を守ることができます。
 
-設定手順：
-リポジトリ > Settings > Branches
-Branch protection rules → 「Add rule」
+**設定手順：**  
+- リポジトリ → `Settings` → `Branches`  
+- `Branch protection rules` → 「Add rule」  
+- `main` などのブランチ名を指定  
+- 以下をチェック：  
+  - ✅ "Require pull request reviews before merging"  
+  - ✅ "Restrict who can push to matching branches"（必要に応じて）  
+  - ✅ "Require status checks to pass before merging"
 
-main などのブランチ名を指定
+---
 
-以下をチェック：
-✅ "Require pull request reviews before merging"
-✅ "Restrict who can push to matching branches"（必要に応じて）
-✅ "Require status checks to pass before merging"
+### 🔄 他人が「変更提案」する方法（編集ではない）
 
-<h3>🔄 他人が「変更提案」する方法（編集ではない）</h3>
-🌱 Fork + Pull Request 方式
-他のGitHubユーザーは フォーク（fork） して自分のコピーを作り、
-そこで編集してから Pull Request（PR） を送ってくる形
-あなた（リポジトリ所有者）はレビューして「Merge」するか判断できます
+🌱 **Fork + Pull Request 方式**  
+他のGitHubユーザーは **フォーク（fork）** して自分のコピーを作り、  
+そこで編集してから **Pull Request（PR）** を送ってくる形です。  
+
+あなた（リポジトリ所有者）はレビューして「Merge」するか判断できます。
+
 ☑️ つまり、「誰でも提案はできるが、マージするのは自分だけ」にできます。
