@@ -18,7 +18,7 @@
 
 ```mermaid
 flowchart TD
-  A[main<br>本番環境] -->|マージ<br>(from release/)| A
+  A[main<br>本番環境] -->|マージ<br> from release | A
   R[release/v1.0] --> A
   D[develop<br>統合開発用] --> R
   D --> F1[feature/login-form]

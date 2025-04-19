@@ -191,6 +191,9 @@ Organization単位で「フォークを無効にする」オプションがあ�
 |完全に拒否したい	| GitHub上では不可能。READMEで方針を明記する |
 **
 
+# Gitブランチ運用方法の例
+[[Gitブランチ運用マニュアル（Git Flow & GitHub Flow）]]
+
 # トラブル対応
 
 ## 🔧 Markdownでうまく表示できない場合の対処ポイントまとめ
@@ -200,3 +203,4 @@ Organization単位で「フォークを無効にする」オプションがあ�
 - 改行と箇条書き：	**Markdownの記法（-, 1., \#\#など）を使う**
 
 Markdownの整形も自動でやりたい場合は、VSCodeのMarkdown Preview Enhanced拡張や、GitHub Desktopも便利ですよ。
+
